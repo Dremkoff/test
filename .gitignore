@@ -1,0 +1,5 @@
+# cache from parcel-bundler
+.cache
+# dist temp build created by parcel bundler 
+dist
+node_modules
