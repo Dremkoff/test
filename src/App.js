@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router';
 
 // Components
 import Header from './components/header';
@@ -11,8 +12,11 @@ import './App.css';
 const App = () => (
   <div className="main-app">
     <Header />
-    <Login />
-    <Profile />
+    <Switch>
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/login" component={Login} />
+      <Route render={() => <h1>404</h1>} />
+    </Switch>
   </div>
 );
 
