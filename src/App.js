@@ -5,8 +5,11 @@ import Header from './components/header';
 import Login from './components/login';
 import Profile from './components/profile';
 
+// Style
+import './App.css';
+
 const App = () => (
-  <div>
+  <div className="main-app">
     <Header />
     <Login />
     <Profile />

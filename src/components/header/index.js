@@ -1,5 +1,12 @@
 import React from 'react';
 
-const Header = () => <div>Header component</div>;
+// Style
+import './index.css';
+
+const Header = () => (
+  <header>
+    Welcome guest, please login <hr />
+  </header>
+);
 
 export default Header;
