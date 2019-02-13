@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 
-import { SIGN_IN_FETCHING, SIGN_IN_FETCHED, SIGN_IN_REJECTED } from '../constants';
+import { SIGN_IN_FETCHING, SIGN_IN_FETCHED, SIGN_IN_REJECTED, LOG_OUT } from '../constants';
 import { singnInFunc } from '../utils';
 
 export const signInAction = credentials => dispatch => {
@@ -22,3 +22,7 @@ export const signInAction = credentials => dispatch => {
     dispatch(push('/en/profile'));
   }
 }
+
+export const logOutAction = () => ({
+  type: LOG_OUT,
+})

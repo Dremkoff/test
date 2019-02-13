@@ -5,3 +5,7 @@
 .form-group:last-child {
   margin-bottom: 0;
 }
+
+.error {
+  border: 1px solid red;
+}

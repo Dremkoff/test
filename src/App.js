@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router';
 
 // Components
 import Header from './components/header';
@@ -14,6 +14,7 @@ const App = () => (
   <div className="main-app">
     <Header />
     <Switch>
+      <Route exact path="/" render={() => <Redirect to="/en" />} />
       <Route exact path="/:lang(en|ro|ru)" render={() => null} />
       <Route exact path="/:lang(en|ro|ru)/login" component={Login} />
       <ProtectedRoute exact path="/:lang(en|ro|ru)/profile" component={Profile} />
