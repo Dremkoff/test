@@ -3,11 +3,11 @@ import { SIGN_IN_FETCHED, USER_UPDATED } from '../../constants';
 const initialState = {
   userName: '',
   name: '',
-  surname: '',
+  surName: '',
   phone: '',
   city: '',
   country: '',
-  adress: ''
+  address: ''
 };
 
 export default function reducer(state = initialState, action) {
@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
   switch (type) {
     case USER_UPDATED:
     case SIGN_IN_FETCHED: {
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload.user };
     }
     default:
       return state;

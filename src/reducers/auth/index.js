@@ -9,7 +9,7 @@ import {
 const initialState = {
   fetching: false,
   isAuthorised: false,
-  error: ''
+  error: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
     }
     case SIGN_IN_REJECTED: {
       const { error } = action;
-      return { ...state, fetching: false, error };
+      return { ...state, fetching: false, ...error };
     }
     case LOG_OUT: {
       return { ...state, isAuthorised: false };
