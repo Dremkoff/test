@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router';
 
-import { SIGN_IN_FETCHING, SIGN_IN_FETCHED, SIGN_IN_REJECTED, LOG_OUT } from '../constants';
-import { singnInFunc } from '../utils';
+import { SIGN_IN_FETCHING, SIGN_IN_FETCHED, SIGN_IN_REJECTED, LOG_OUT, USER_UPDATE_FETCHING, USER_UPDATE_FETCHED, USER_UPDATE_REJECTED } from '../constants';
+import { singnInFunc, updateProfileFunc } from '../utils';
 
 export const signInAction = credentials => dispatch => {
   dispatch({
@@ -26,3 +26,20 @@ export const signInAction = credentials => dispatch => {
 export const logOutAction = () => ({
   type: LOG_OUT,
 })
+
+export const updateProfile = data => dispatch => {
+  dispatch({
+    type: USER_UPDATE_FETCHING,
+  })
+  const response = updateProfileFunc(data);
+  if (response) {
+    dispatch({
+      type: USER_UPDATE_FETCHED,
+      payload: { user: { ...data } },
+    })
+  } else {
+    dispatch({
+      type: USER_UPDATE_REJECTED,
+    })
+  }
+}

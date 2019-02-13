@@ -22,3 +22,10 @@ export const singnInFunc = ({ email, password }) => (
     : error({ email, password })
 )
 
+export const updateProfileFunc = data => {
+  if (data) {
+    return data;
+  }
+  throw new Error();
+};
+
