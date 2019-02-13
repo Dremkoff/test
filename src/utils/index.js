@@ -17,15 +17,18 @@ const error = ({ email, password }) => {
 }
 
 export const singnInFunc = ({ email, password }) => (
-  email === 'info@test.com' && password === 'cghhhT11j'
-    ? { user }
-    : error({ email, password })
+  new Promise((resolve, reject) => {
+    if (email === 'info@test.com' && password === 'cghhhT11j') {
+      resolve({ user })
+    } else {
+      reject(error({ email, password }))
+    }
+  })
 )
 
-export const updateProfileFunc = data => {
-  if (data) {
-    return data;
-  }
-  throw new Error();
-};
+export const updateProfileFunc = data => (
+  new Promise((resolve, reject) => {
+    data ? resolve(data) : reject(new Error());
+  })
+);
 

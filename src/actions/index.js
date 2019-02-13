@@ -7,20 +7,18 @@ export const signInAction = credentials => dispatch => {
   dispatch({
     type: SIGN_IN_FETCHING,
   })
-  const response = singnInFunc(credentials);
-  if ('error' in response) {
-    dispatch({
-      type: SIGN_IN_REJECTED,
-      error: response,
-    })
-  }
-  if ('user' in response) {
+  singnInFunc(credentials).then(response => {
     dispatch({
       type: SIGN_IN_FETCHED,
       payload: { ...response },
     });
     dispatch(push('/en/profile'));
-  }
+  }).catch(error => (
+    dispatch({
+      type: SIGN_IN_REJECTED,
+      error
+    })
+  ));
 }
 
 export const logOutAction = () => ({
